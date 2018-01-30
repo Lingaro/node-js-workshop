@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Node.js workshop</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img style="border: none; background: none;" src="./img/nodejs-logo.svg" />
+					<h3>
+						workshop
+					</h3>
+				</section>
+				<section>
+					<h2>What's node.js?</h2>
+					<ul>
+						<li class="fragment">JavaScript runtime built on Chrome's V8 JS engine</li>
+						<li class="fragment">Compliant to ecma-262 specification</li>
+						<li class="fragment">Event-driven, non-blocking IO model</li>
+						<li class="fragment">Javascript you've been using for years minus browser-specific APIs</li>
+						<li class="fragment">REPL</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Node.js vs browser</h2>
+					<table style="font-size: 0.8em">
+						<thead>
+							<tr>
+								<td></td>
+								<td>Node.js</td>
+								<td>Browser</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Renders window</td>
+								<td>Headless</td>
+								<td>Window</td>
+							</tr>
+							<tr>
+								<td>Global scope variable</td>
+								<td><span class="code-keyword">global</span></td>
+								<td><span class="code-keyword">window</span></td>
+							</tr>
+							<tr>
+								<td><code class="code-keyword">document</code> variable</td>
+								<td>No</td>
+								<td>Yes</td>
+							</tr>
+							<tr>
+								<td>External modules</td>
+								<td>Via <code class="code-keyword">require()</code> object</td>
+								<td>Asynchronous file loading</td>
+							</tr>
+							<tr>
+								<td>DOM API</td>
+								<td>No</td>
+								<td>Yes</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<section>
+						<h2>Why node.js?</h2>
+						<ul>
+							<li>No language-switching when developing full stack</li>
+							<li>Code can run in backend and frontend</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Big open-source community</h2>
+						<p>Query: stars:">10000"</p>
+						<p>All repositories: 650</p>
+						<img src="./img/github-repos.png" />
+					</section>
+				</section>
+				<section>
+					<h2>ES6 compliance</h2>
+					<a href="node.green">http://node.green</a>
+					<img src="./img/es6-compliance.png" alt="">
+				</section>
+				<section>
+					<section>
+						<h2>NPM as package manager</h2>
+						Initialize:
+						<pre><code class="bash hljs">npm init</code></pre>
+						Installing packages:
+						<pre><code class="bash hljs">npm install --save module-name</code></pre>
+					</section>
+					<section>
+						Package.json:
+<pre><code class="json hljs">{
+  "name": "training",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node build/app.js"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1"
+  }
+}</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Built-in packages</h2>
+					</section>
+					<section>
+						<h3>File system</h3>
+						Allows for synchronous and asynchronous file and directory reading.
+					</section>
+					<section>
+						<h3>Stream</h3>
+						<p>Transmits chunks of binary data using Buffers.</p>
+						<p>Stream types:</p>
+						<ul>
+							<li>Readable streams</li>
+							<li>Writable streams</li>
+							<li>Duplex streams</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Buffer</h3>
+						<p>Mechanism to read and manipulate streams of binary streams like TCP or file system data</p>
+						<p>Array-like structure</p>
+						<p>Character encoding</p>
+					</section>
+					<section>
+						<h3>HTTP</h3>
+						<p>HTTP server for node.js</p>
+					</section>
+					<section>
+						<h3>Process</h3>
+						<p>Gives information and control over current Node.js process</p>
+						<p>Useful API</p>
+						<ul>
+							<li>process.abort</li>
+							<li>process.argv</li>
+							<li>process.env</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Babel</h2>
+						<p>Using stage-0 to stage-3 features</p>
+					</section>
+					<section>
+						<h2>Typescript</h2>
+						<p>Configure compiler via <span class="code-keyword">tsconfig.json</span> file</p>
+					</section>
+				</section>
+				<section>
+					<h1>Developing backend applications</h1>
+				</section>
+				<section>
+					<h2>Express.js</h2>
+					<ul>
+						<li>Minimalist framework for node.js routing</li>
+						<li>Parsing requests</li>
+						<li>Engine templating</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Express session</h2>
+					<ul>
+						<li>Session management</li>
+						<li>Lots of connectors to session stores</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Database connectors</h2>
+					<ul>
+						<li><a href="https://github.com/brianc/node-postgres">node-postgres</a></li>
+						<li><a href="https://github.com/oracle/node-oracledb">node-oracledb</a></li>
+						<li><a href="https://www.npmjs.com/package/mssql">mssql</a></li>
+						<li><a href="https://github.com/mysqljs/mysql">mysql</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Function that can run on frontend and backend</h2>
+				</section>
+				<section>
+					<h2>Example stack</h2>
+					<ul>
+						<li>Express.js</li>
+						<li>Express-session</li>
+						<li>Passport</li>
+						<li>node-postgres</li>
+						<li>Typeorm</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Q &amp; A</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
